@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Example of jQuery Animated Show Hide Effects</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <style>
+        p {
+            padding: 15px;
+            background: #F0E68C;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            // Hide displayed paragraphs with different speeds
+            $(".hide-btn").click(function() {
+                $("p.very-slow").hide(650);
+            });
+
+            // Show hidden paragraphs with different speeds
+            $(".show-btn").click(function() {
+                $("p.very-slow").show(650);
+            });
+        });
+
+        function test(id) {
+            $(document).ready(function() {
+                $('#' + id).slideToggle("fast");
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" class="hide-btn">Hide Paragraphs</button>
+    <button type="button" class="show-btn">Show Paragraphs</button>
+    <p class="very-slow">This paragraph will show/hide with very slow speed.</p>
+
+    <br>
+    <div id="showmenu" onclick="test('id')">Click Here</div>
+    <div class="menu" id="id" style="display: none;">
+        <ul>
+            <li>Button1</li>
+            <li>Button2</li>
+            <li>Button3</li>
+        </ul>
+    </div>
+    <div id="showmenu" onclick="test('id2')">Click Here 2</div>
+    <div class="menu" id="id2" style="display: none;">
+        <ul>
+            <li>Button12</li>
+            <li>Button2</li>
+            <li>Button32</li>
+        </ul>
+    </div>
+</body>
+
+</html>

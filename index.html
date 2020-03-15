@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="./js/jquery 3-4-1.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive curriculum</title>
+</head>
+
+<body>
+    <div class="overflow">
+        <header class="Headboard">
+            <a href="#home"><img src="images/logo.png" class="logen" alt="logo-menu"></a>
+            <nav>
+                <ul class="menu">
+                    <li class="seccion home"><a href="#home">Home</a></li>
+                    <li class="seccion vista"><a href="#empezar" class="scroll" data-speed="500" onclick="vistaPrevia('preview')">Preview</a></li>
+                    <li><input class="imprimir" type="button" onclick="printCurriculum()" id="btnprint" title="To print"></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="cover">
+                <div class="create">
+                    <h1>Create your own CV</h1>
+                    <a href="#empezar" class="scroll" data-speed="1000">Start</a>
+                </div>
+            </div>
+
+            <div class="resume-container" id="empezar">
+                <!--container formulario-->
+                <div class="split-div">
+                    <form class="resume-form" action="/signup" method="post">
+
+                        <div class="profile section">
+                            <!--seccion Profile-->
+                            <div class="info">
+                                <h2 class="section-title">Profile</h2>
+                                <div class="section-buttons">
+                                    <input type="button" onclick="editar('content-profile')" class="button-info" value="Edit">
+                                </div>
+                            </div>
+
+                            <div id="content-profile" style="display: none;
+							background-color: rgba(226, 226, 226, 0.72);">
+                                <!--SECCION OCULTA-->
+                                <input type="text" name="name" id="name" placeholder="Name">
+                                <input type="text" name="lastname" id="lastname" placeholder="Surnames">
+                                <input type="text" name="profession" id="profession" placeholder="Profession">
+                                <input type="button" name="save" class="saveProfile" value="Save">
+                                <input type="button" name="delete" value="Delete" class="delete-profile">
+                                <input type="button" value="Close" onclick="cerrar('content-profile')">
+                            </div>
+                        </div>
+                        <!--end seccion Profile-->
+
+                        <div class="summary section">
+                            <!--summary Profile-->
+                            <div class="info">
+                                <h2 class="section-title">Abstract</h2>
+                                <div class="section-buttons">
+                                    <input type="button" class="button-info" value="Edit" onclick="editar('content-summary')">
+                                </div>
+                            </div>
+
+                            <div id="content-summary" style="display: none;
+							background-color: rgba(226, 226, 226, 0.72);">
+                                <!--SECCION OCULTA-->
+                                <textarea name="summary" id="summary" rows="8" cols="80" placeholder="Enter a short description"></textarea>
+                                <input type="button" name="save" value="Save" class="saveSumary">
+                                <input type="button" name="delete" value="Delete" class="delete-summary">
+                                <input type="button" value="Close" onclick="cerrar('content-summary')">
+                            </div>
+                        </div>
+                        <!--end summary section-->
+
+                        <div class="contact-information section">
+                            <!--seccion contacto-->
+                            <div class="info">
+                                <h2 class="section-title">Contact information</h2>
+                                <div class="section-buttons">
+                                    <input type="button" class="button-info" value="Edit" onclick="editar('content-contact-info')">
+                                </div>
+                            </div>
+                            <div id="content-contact-info" style="display: none;
+							background-color: rgba(226, 226, 226, 0.72);">
+                                <!--SECCION OCULTA-->
+                                <input type="tel" name="telephone" id="telephone" placeholder="Phone number">
+                                <span class="error error_telephone"></span>
+                                <input type="email" name="email" id="email" placeholder="Email">
+                                <span class="error error_email"></span>
+                                <input type="button" name="save" value="Save" class="saveContact">
+                                <input type="button" name="delete" value="Delete" class="delete-contact">
+                                <input type="button" value="Close" onclick="cerrar('content-contact-info')">
+                            </div>
+                        </div>
+                        <!--end contact-information-->
+
+                        <div class="experience section">
+                            <!--seccion experiencia-->
+                            <div class="info">
+                                <h2 class="section-title">Work experience</h2>
+                                <div class="section-buttons">
+                                    <input type="button" class="button-info" value="Edit" onclick="editar('content-experience')">
+                                </div>
+                            </div>
+
+                            <div id="content-experience" style="display: none;
+							background-color: rgba(226, 226, 226, 0.72);">
+                                <!--SECCION OCULTA-->
+                                <div class="addMore">
+                                    <div class="newbutton">
+                                        <div class="work">
+                                            <input id="position" type="text" name="name" placeholder="Position">
+                                            <input id="experience" type="text" name="name" placeholder="Business">
+                                            <div class="period-initial">
+                                                <label>Start date</label>
+                                                <div class="initial">
+                                                    <select class="month" name="start-month" id="month-start"></select>
+                                                    <select class="year" name="start-year" id="year"></select>
+                                                </div>
+                                            </div>
+                                            <div class="period-end">
+                                                <label>Ending date</label>
+                                                <div class="end">
+                                                    <select class="month" name="end-month" id="month-end"></select>
+                                                    <select class="year" name="end-year" id="year-end"></select>
+                                                </div>
+                                            </div>
+
+                                            <div class="act">
+                                                <label>At present</label>
+                                                <input id="actuality" type="checkbox" value="" name="actual">
+                                                <div class="buttonrelative">
+                                                    <img class="prueba_experience" src="images/more.png" alt="button test" title="test">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--work-->
+                                    </div>
+                                    <!--newbutton-->
+                                </div>
+                                <!--addmore-->
+
+                                <input type="button" name="save" value="Save" class="saveExperience">
+                                <input type="button" name="delete" value="Delete" class="delete-experience">
+                                <input type="button" value="Close" onclick="cerrar('content-experience')">
+                            </div>
+                            <!-- end content-experience-->
+                        </div>
+                        <!--end experience section-->
+
+                        <div class="additional section">
+                            <!--seccion additional-->
+                            <div class="info">
+                                <h2 class="section-title">More information</h2>
+                                <div class="section-buttons">
+                                    <input type="button" class="button-info" value="Edit" onclick="editar('content-additional')">
+                                </div>
+                            </div>
+
+                            <div id="content-additional" style="display: none;
+							background-color: rgba(226, 226, 226, 0.72);">
+                                <div class="addMore">
+                                    <div class="newbutton">
+                                        <input class="education" type="text" name="education" placeholder="Studies">
+                                        <input class="education_university" type="text" name="education_university" placeholder="Name of School">
+                                        <img class="prueba" src="images/more.png" alt="button test" title="test">
+                                    </div>
+                                </div>
+                                <!-- <span class="error error_estudio"></span> -->
+
+                                <div class="addMore">
+                                    <div class="newbutton">
+                                        <input class="languages" type="text" name="languages" placeholder="Languages">
+                                        <label for="level">level</label>
+                                        <select class=" level" id="level" name="level"></select>
+                                        <img class="prueba_language" src="images/more.png" alt="button test" title="test">
+                                    </div>
+                                </div>
+
+                                <div class="input-skill">
+                                    <input type="text" id="skills1" class="skills" name="skills1" placeholder="Skill">
+                                    <input class="level_skills" type="number" name="level_skills1" value="" placeholder="Level from 1 to 100">
+                                    <input type="text" id="skills2" class="skills" name="skills2" placeholder="Skill">
+                                    <input class="level_skills" type="number" name="level_skills2" value="" placeholder="Level from 1 to 100">
+                                    <input type="text" id="skills3" class="skills" name="skills3" placeholder="Skill">
+                                    <input class="level_skills" type="number" name="level_skills3" value="" placeholder="Level from 1 to 100">
+                                </div>
+                                <div class="addMore">
+                                    <div class="newbutton">
+                                        <input id="interest" type="text" name="interest" placeholder="Intereses">
+                                        <img class="prueba_interest" src="images/more.png" alt="button test" title="test">
+                                    </div>
+                                </div>
+                                <input type="button" name="save" value="Save" class="saveMore">
+                                <input type="button" name="delete" value="Delete" class="delete-additional">
+                                <input type="button" value="Close" onclick="cerrar('content-additional')">
+                            </div>
+                        </div>
+                        <!--end additional section-->
+
+                        <!-- COLOR BUTTONS -->
+                        <div class="personalize section">
+                            <div class="info">
+                                <h2 class="section-title">Customize your CV</h2>
+                                <div class="color-buttons">
+                                    <input class="botoncito button_green" type="button" data-theme-class="theme1" value="">
+                                    <input class="botoncito button_purple" type="button" data-theme-class="theme2" value="">
+                                    <input class="botoncito button_yellow" type="button" data-theme-class="theme3" value="">
+                                    <input class="botoncito button_blue" type="button" data-theme-class="theme4" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- DIV OCULTO VISTA PREVIA-->
+                    <div class="preview printPreview" id="preview">
+                        <div class="showpreview">
+                            <img class="hide" src="images/cancel.png" alt="button close" onclick="cerrar('preview')">
+
+                            <div class="printPreview" id="preview2">
+                                <div class="resume-header">
+                                    <h2 class="resume-title" id="data-profile"></h2>
+                                </div>
+
+                                <div class="resume-header-profession">
+                                    <span id="data-profession"></span>
+                                </div>
+                                <hr class="top-line">
+                                <div class="resume-header-summary">
+                                    <span id="data-summary"></span>
+                                </div>
+
+                                <div class="section-preview">
+                                    <div class="section-title-line">
+                                        <div class="titles">
+                                            <h3>Contact information</h3>
+                                        </div>
+                                        <hr class="bottom-line">
+                                    </div>
+                                    <div>
+                                        <span class="span-titles">Phone number:</span> <span id="data-telephone"></span>
+                                    </div>
+                                    <div>
+                                        <span class="span-titles">Email:</span> <span id="data-email"></span>
+                                    </div>
+                                </div>
+                                <!--end section-preview-->
+
+                                <div class="section-preview">
+                                    <div class="section-title-line">
+                                        <div class="titles">
+                                            <h3>Work experience</h3>
+                                        </div>
+                                        <hr class="bottom-line">
+                                    </div>
+                                    <div>
+                                        <span id="data-position" class="span-experience"></span>
+                                    </div>
+                                </div>
+                                <!--end section-preview-->
+
+                                <div class="section-preview">
+                                    <div class="section-title-line">
+                                        <div class="titles">
+                                            <h3>More information</h3>
+                                        </div>
+                                        <hr class="bottom-line">
+                                    </div>
+                                    <div>
+                                        <span class="span-titles">Studies:</span> <br>
+                                        <ul id="data-studies" class="data-list data-studies"></ul>
+                                    </div>
+                                    <div>
+                                        <span class="span-titles">Languages:</span>
+                                        <ul id="data-languages" class="data-list data-languages"></ul>
+                                    </div>
+
+                                    <div class="skill_container">
+                                        <span class="span-titles">Skilles:</span>
+                                        <div class="barSkillsSection">
+                                            <div class="levelSkill">
+                                                <p id="skillName1" class="skillName"></p>
+                                            </div>
+                                        </div>
+                                        <div class="barSkillsSection">
+                                            <div class="levelSkill">
+                                                <p id="skillName2" class="skillName"></p>
+                                            </div>
+                                        </div>
+                                        <div class="barSkillsSection">
+                                            <div class="levelSkill">
+                                                <p id="skillName3" class="skillName"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end skill section-->
+
+                                    <div>
+                                        <span class="span-titles">Interests:</span>
+                                        <ul id="data-interest" class="data-list data-interest"></ul>
+                                    </div>
+                                </div>
+                                <!--end section-preview-->
+                            </div>
+                            <!--end print preview-->
+                        </div>
+                        <!--end showpreview-->
+                    </div>
+                    <!--end preview-->
+                </div>
+                <!--split-div-->
+            </div>
+            <!--fin container formulario-->
+        </main>
+
+        <footer>
+            <div class="itemsfooter">
+                <p> Copyright &copy; 2019 </p>
+                <a href="https://github.com/Adalab/c-s2-mediaqueers" alt="repositorio github original" target="_blank"><img src="images/logo.png" class="logen" alt="logo"></a>
+            </div>
+
+            <div class="itemsfooter">
+                <p>Where we are? </p>
+                <div class="map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.776470408461!2d106.65367241462219!3d10.751703292338258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ef4591fa57b%3A0xb7d3ade595432d24!2zMTUgxJDhu5cgTmfhu41jIFRo4bqhbmgsIFBoxrDhu51uZyAxNCwgUXXhuq1uIDUsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1584204910229!5m2!1svi!2s"
+                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+
+            <div class="itemsfooter ">
+                <div class="questions">
+                    <a href="formulario.html" target="_blank" class="feedback">How have we done it?</a>
+                    <span class="lapiz"><img src="images/writing.png" alt="drawing pencil sheet"><a href="formulario.html"
+							target="_blank" class="feedback"></a></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--FIN DIV OVERFLOW-->
+
+    <script type="text/javascript" src="js/main.js">
+    </script>
+</body>
+
+</html>
