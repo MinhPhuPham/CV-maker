@@ -1,32 +1,22 @@
-#  Project from Sprint #2 Adalab
 Create an interactive resume with Vanilla JS
 
-## Proyecto 2: Curriculo interactivo
-En este proyecto vamos a crear un currículum de forma interactiva haciendo uso de Javascript
+In this project we are going to create a resume interactively using Javascript
 
-## Especificaciones
-**Se desarrollará una página web con las siguientes características:**
-- Uso de HTML, CSS y JavaScript
-- Uso de mediaqueries para que el diseño sea adaptable al dispositivo
-- Uso avanzado de formularios
-- Gestión de eventos (click, mouseover, etc.)
-- Desarrollo usando la estrategia mobile first
-- Uso de git para el control de versiones del proyecto
-- Publicación del resultado en Internet usando GitHub pages
+## Special
+** A web page with the following characteristics will be developed: **
+- Use of HTML, CSS and JavaScript
+- Use of mediaqueries to make the design adaptable to the device
+- Advanced use of forms
+- Event management (click, mouseover, etc.)
+- Development using the mobile first strategy
+- Use of git for project version control
+- Publication of the result on the Internet using GitHub pages
 
-**La web deberá tener las siguientes características:**
-- Permitir al usuario introducir información en el formulario y que el texto se muestre en una hoja como resultado final.
-- Permitir que el usuario pueda imprimir el resultado en una página física.
-- Crearemos pestañas o colapsables para mostrar las distintas partes del formulario
+** The website must have the following characteristics: **
+- Allow the user to enter information in the form and that the text is displayed on a sheet as the final result.
+- Allow the user to print the result on a physical page.
+- We will create tabs or collapsible to show the different parts of the form
 
-**Integrantes del equipo**
+**Builder**
 
-Eva Llorca
-
-Carmen Rueda
-
-Teresa Marbán
-
-Maria Virginia Rivas
-
-[Repositorio original](https://github.com/Adalab/c-s2-mediaqueers)
+Jable Johnson (Minh Phu)
