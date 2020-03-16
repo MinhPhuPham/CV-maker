@@ -318,6 +318,7 @@ function deleteInterest() {
 function fillMore() {
     vistaPrevia("preview");
     let Array = [];
+
     var datosHabilidades1 = document.querySelector("#skills1").value;
     var datosHabilidades2 = document.querySelector("#skills2").value;
     var datosHabilidades3 = document.querySelector("#skills3").value;
@@ -326,12 +327,15 @@ function fillMore() {
     var inputSkill = document.querySelectorAll('.skills');
     var inputLevel = document.querySelectorAll('.level_skills');
 
+
     for (var i = 0; i < newSkill.length; i++) {
-        if (newSkill[i].innerHTML < 0 && newSkill[i].innerHTML > 100) {
-            alert
+        if (inputLevel[i].value >= 0 && inputLevel[i].value <= 100) {
+            newSkill[i].innerHTML = inputSkill[i].value;
+            newSkill[i].parentElement.style.width = inputLevel[i].value + '%';
+        } else {
+            alert('You must choose a level between 0 and 100');
         }
-        newSkill[i].innerHTML = inputSkill[i].value;
-        newSkill[i].parentElement.style.width = inputLevel[i].value + '%';
+
     }
     document.querySelector("#skillName1").innerHTML = datosHabilidades1;
     document.querySelector("#skillName2").innerHTML = datosHabilidades2;
@@ -483,3 +487,22 @@ function printCurriculum() {
     window.print();
     document.body.innerHTML = viewPrint;
 }
+var fileInput = document.querySelector('input[type=file]');
+var filenameContainer = document.querySelector('#filename');
+var dropzone = document.querySelector('div');
+
+fileInput.addEventListener('change', function() {
+    filenameContainer.innerText = fileInput.value.split('\\').pop();
+});
+
+var img = document.querySelector('#myImg'); // $('img')[0]
+window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+
+            img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+            localStorage.setItem('img', URL.createObjectURL(this.files[0]))
+        }
+    });
+});
+img.src = localStorage.getItem('img')

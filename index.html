@@ -21,7 +21,7 @@
             <nav>
                 <ul class="menu">
                     <li class="seccion home"><a href="#home">Home</a></li>
-                    <li class="seccion vista"><a href="#empezar" class="scroll" data-speed="500" onclick="vistaPrevia('preview')">Preview</a></li>
+                    <li class="seccion vista"><a href="#preview" class="scroll" data-speed="500" onclick="vistaPrevia('preview')">Preview</a></li>
                     <li><input class="imprimir" type="button" onclick="printCurriculum()" id="btnprint" title="To print"></li>
                 </ul>
             </nav>
@@ -56,6 +56,10 @@
                                 <input type="text" name="name" id="name" placeholder="Name">
                                 <input type="text" name="lastname" id="lastname" placeholder="Surnames">
                                 <input type="text" name="profession" id="profession" placeholder="Profession">
+                                <label id="lab" for="test">
+                                    <div class="text">Choose your image CV</div>
+                                    <input type="file" id="test">
+                                </label>
                                 <input type="button" name="save" class="saveProfile" value="Save">
                                 <input type="button" name="delete" value="Delete" class="delete-profile">
                                 <input type="button" value="Close" onclick="cerrar('content-profile')">
@@ -222,22 +226,33 @@
                             </div>
                         </div>
                     </form>
-                    <!-- DIV OCULTO VISTA PREVIA-->
-                    <div class="preview printPreview" id="preview">
+                    <!-- HIDDEN DIV PREVIEW -->
+                    <div class="preview printPreview" id="preview" style="display: block;">
                         <div class="showpreview">
                             <img class="hide" src="images/cancel.png" alt="button close" onclick="cerrar('preview')">
 
                             <div class="printPreview" id="preview2">
-                                <div class="resume-header">
-                                    <h2 class="resume-title" id="data-profile"></h2>
-                                </div>
+                                <div class="head">
+                                    <div class="img-profile">
+                                        <img id="myImg" src="#" alt="your image" style=" height: 180px; width:150px">
+                                    </div>
+                                    <div class="head-profile">
+                                        <div class="resume-header">
 
-                                <div class="resume-header-profession">
-                                    <span id="data-profession"></span>
-                                </div>
-                                <hr class="top-line">
-                                <div class="resume-header-summary">
-                                    <span id="data-summary"></span>
+                                            <h2 class="resume-title" id="data-profile"></h2>
+                                        </div>
+
+                                        <div class="resume-header-profession">
+                                            <span id="data-profession"></span>
+                                            <hr class="top-line" style="margin-top: 2px;">
+                                        </div>
+
+                                        <div class="resume-header-summary">
+                                            <!-- <hr class="top-line"> -->
+
+                                            <span id="data-summary"></span>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="section-preview">
@@ -322,7 +337,6 @@
             </div>
             <!--fin container formulario-->
         </main>
-
         <footer class="footer-distributed">
 
             <div class="footer-left">
@@ -349,7 +363,9 @@
 
                 <div>
                     <i class="fa fa-envelope"></i>
-                    <p><a href="mailto:phamminhphueur@gmail.com"><span class="__cf_email__" data-cfemail="7068616d6d696e6870687565757240676d61696c2e636f6d">[email&#160;protected]</span></a></p>
+                    <p><a href="mailto:phamminhphueur@gmail.com"><span class="__cf_email__"
+                                data-cfemail="7068616d6d696e6870687565757240676d61696c2e636f6d">[email&#160;protected]</span></a>
+                    </p>
                 </div>
 
             </div>

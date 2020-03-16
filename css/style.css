@@ -136,7 +136,18 @@ body {
 }
 
 
-/*contenedor del formulario*/
+/* form container */
+
+.head {
+    width: 92%;
+}
+
+.img-profile {
+    width: 150px;
+    height: 180px;
+    float: left;
+    border: 1px solid #b0c0bc;
+}
 
 .resume-container {
     width: 100%;
@@ -261,6 +272,40 @@ input.button-info {
     display: none;
     background-color: rgba(226, 226, 226, 0.72);
 }
+
+input[type="file"] {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.text {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rbg(240, 240, 240);
+    border: 3px dotted #bebebe;
+    border-radius: 10px;
+}
+
+#lab {
+    display: inline-block;
+    position: relative;
+    width: 400px;
+    left: 13%;
+}
+
+
+/* div.dragover {
+    background-color: #aaa;
+} */
 
 select {
     display: flex;
@@ -458,18 +503,19 @@ div#preview2 {
 .resume-header-profession {
     margin: 5px 0 8px 0;
     font-size: 23px;
+    text-align: center;
 }
 
 .resume-header-summary {
-    margin: 10px 0;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
 
 .top-line {
-    border: 1px solid #b0c0bc;
-    width: 80%;
+    border: 0.5px solid #b0c0bc;
+    width: 50%;
+    margin: auto;
 }
 
 .bottom-line {
@@ -699,6 +745,40 @@ iframe {
     }
 }
 
+@media (max-width: 481px) {
+    #lab {
+        width: 200px;
+        left: 16%;
+    }
+}
+
+@media (min-width: 1366px) {}
+
+@media (min-width: 1200px) and (max-width: 1365px) {
+    #lab {
+        left: 5%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #lab {
+        left: 1%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #lab {
+        width: 400px;
+        left: 0%;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 760px) {
+    #lab {
+        width: 400px;
+    }
+}
+
 @media all and (min-width: 769px) {
     .logen {
         display: block;
@@ -725,8 +805,8 @@ iframe {
     input.button-info {
         width: 41%;
     }
-    input.button-info:focus {
-        background-color: chocolate;
+    input.button-info:active {
+        background-color: rgb(150, 147, 145);
     }
     input#actuality {
         width: 30px;
