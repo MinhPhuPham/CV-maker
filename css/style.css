@@ -90,7 +90,7 @@ body {
 /*Cover*/
 
 .cover {
-    background: url('../images/cover5.jpg');
+    background: url('../images/cover5.png');
     background-size: cover;
     /* background-attachment: fixed; */
     width: 100vw;
@@ -480,7 +480,7 @@ input#actuality {
     margin-bottom: 20px;
 }
 
-div#preview2 {
+#preview2 {
     display: flex;
     flex-direction: column;
     align-items: center;

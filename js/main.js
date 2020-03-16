@@ -44,7 +44,6 @@ function fillProfile() {
     document.querySelector("#data-profile").innerHTML = dataName + ' ' + dataLastName;
     document.querySelector("#data-profession").innerHTML = dataprofession;
 
-
 }
 
 document.getElementById("data-profile").innerHTML = localStorage.getItem('name') + ' ' + localStorage.getItem('lastname');
@@ -113,7 +112,7 @@ function checknumberskill() {
 }
 // functions validate Telephone
 function validatePhone(telephone) {
-    var regexPhone = /^([0-9]+){9}$/
+    var regexPhone = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/g;
     if (regexPhone.test(telephone)) {
         return true;
     } else {
@@ -124,22 +123,32 @@ function validatePhone(telephone) {
 function checkTelephone() {
     var telephone = document.getElementById("telephone").value;
     if (validatePhone(telephone) === false) {
-        document.querySelector(".error_telephone").innerHTML = "Please enter a valid phone number";
+        document.querySelector(".error_telephone").innerHTML = "Please enter a valid phone number - 10 number";
     } else {
         document.querySelector(".error_telephone").innerHTML = " ";
     }
 }
 
-//formulario Datos contacto
+// contact data form
+var dataPhoneNumber2 = document.querySelector("#telephone")
+var dataEmail2 = document.querySelector("#email");
+
 function fillContact() {
     checkEmail();
     checkTelephone();
-    var datosTelefono = document.querySelector("#telephone").value;
-    var datosEmail = document.querySelector("#email").value;
+    var dataPhoneNumber = dataPhoneNumber2.value;
+    var dataEmail = dataEmail2.value;
     vistaPrevia("preview");
-    document.querySelector("#data-telephone").innerHTML = datosTelefono;
-    document.querySelector("#data-email").innerHTML = datosEmail;
+
+    localStorage.setItem('phonenumber', dataPhoneNumber);
+    localStorage.setItem('email', dataEmail);
+
+    document.querySelector("#data-telephone").innerHTML = dataPhoneNumber;
+    document.querySelector("#data-email").innerHTML = dataEmail;
 }
+document.querySelector("#data-telephone").innerHTML = localStorage.getItem('phonenumber');
+document.querySelector("#data-email").innerHTML = localStorage.getItem('email');
+
 var saveContact = document.querySelector('.saveContact');
 saveContact.addEventListener('click', fillContact);
 
@@ -505,4 +514,3 @@ window.addEventListener('load', function() {
         }
     });
 });
-img.src = localStorage.getItem('img')
