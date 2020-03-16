@@ -162,7 +162,7 @@ function deleteContact() {
 var contactDelete = document.querySelector('.delete-contact');
 contactDelete.addEventListener('click', deleteContact);
 
-//SECCION EXPERIENCIA LABORAL//////////////////////////////////////////////////////
+// LABOR EXPERIENCE SECTION ///////////////////////////////////////////// /////////
 var jobTitle = document.querySelector("#position");
 var jobExperience = document.querySelector('#experience');
 var startMonth = document.querySelector('.month');
@@ -221,7 +221,7 @@ var jobDelete = document.querySelector('.delete-experience');
 jobDelete.addEventListener('click', deleteJob);
 
 
-//SECCION EDUCACION//////////////////////////////////////////////////////
+// EDUCATION SECTION //////////////////////////////////////////////// ////////
 var studyName = document.querySelector(".education");
 var studyInstitution = document.querySelector('.education_university');
 var studyList = [];
@@ -263,7 +263,7 @@ function deleteStudies() {
 var botonPrueba = document.querySelector('.prueba');
 botonPrueba.addEventListener('click', addStudy);
 
-//SECCION IDIOMAS//////////////////////////////////////////////////////
+// LANGUAGE SECTION //////////////////////////////////////////////// ////////
 
 
 var languageName = document.querySelector(".languages");
@@ -383,7 +383,7 @@ function deleteAdditional() {
 }
 var additionalDelete = document.querySelector('.delete-additional');
 additionalDelete.addEventListener('click', deleteAdditional);
-//función para periodo de incio y periodo de fin
+// function for start period and end period
 var monthOptions = '<option value="January">January</option>';
 monthOptions = monthOptions + '<option value="February"> February</option>';
 monthOptions = monthOptions + '<option value="March">March</option>';
