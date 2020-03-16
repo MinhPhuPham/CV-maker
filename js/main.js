@@ -16,23 +16,48 @@ function vistaPrevia(idContent) {
     document.getElementById(idContent).style.display = 'block';
 }
 // Fill in the form Data Profile
+
+var dataName2 = document.querySelector("#name");
+var dataLastName2 = document.querySelector("#lastname");
+var dataprofession2 = document.querySelector("#profession");
+
 function fillProfile() {
     vistaPrevia("preview");
-    var datosNombre = document.querySelector("#name").value;
-    var datosApellido = document.querySelector("#lastname").value;
-    var datosProfesion = document.querySelector("#profession").value;
+    var dataName = dataName2.value;
+    var dataLastName = dataLastName2.value;
+    var dataprofession = dataprofession2.value;
 
-    datosNombre = datosNombre.toUpperCase();
-    datosApellido = datosApellido.toUpperCase();
+    // Reset text area
+    dataName2.value = "";
+    dataLastName2.value = "";
+    dataprofession2.value = "";
 
-    document.querySelector("#data-profile").innerHTML = datosNombre + ' ' + datosApellido;
-    document.querySelector("#data-profession").innerHTML = datosProfesion;
+    dataName = dataName.toUpperCase();
+    dataLastName = dataLastName.toUpperCase();
+
+    // saved to localStorage
+    localStorage.setItem('name', dataName);
+    localStorage.setItem('lastname', dataLastName);
+    localStorage.setItem('profession', dataprofession);
+
+    // fill to localStorage
+    document.querySelector("#data-profile").innerHTML = dataName + ' ' + dataLastName;
+    document.querySelector("#data-profession").innerHTML = dataprofession;
+
 
 }
 
+document.getElementById("data-profile").innerHTML = localStorage.getItem('name') + ' ' + localStorage.getItem('lastname');
+document.getElementById("data-profession").innerHTML = localStorage.getItem('profession');
+
+
+//clear data
 function deleteProfile() {
     document.querySelector("#data-profile").innerHTML = '';
     document.querySelector("#data-profession").innerHTML = '';
+    localStorage.removeItem('name');
+    localStorage.removeItem('lastname');
+    localStorage.removeItem('profession');
 }
 
 var profileDelete = document.querySelector('.delete-profile');
@@ -42,17 +67,23 @@ var saveProfile = document.querySelector('.saveProfile');
 saveProfile.addEventListener('click', fillProfile);
 
 // Extract data form
+var dataAbstract2 = document.querySelector("#summary")
+
 function fillSummary() {
-    var datosExtracto = document.querySelector("#summary").value;
+    var dataAbstract = dataAbstract2.value;
     vistaPrevia("preview");
-    document.querySelector("#data-summary").innerHTML = datosExtracto;
+
+    localStorage.setItem('abstract', dataAbstract);
+
+    document.querySelector("#data-summary").innerHTML = dataAbstract;
 }
+document.querySelector("#data-summary").innerHTML = localStorage.getItem('abstract');
 var saveSumary = document.querySelector('.saveSumary');
 saveSumary.addEventListener('click', fillSummary);
 
 function deleteSummary() {
     document.querySelector("#data-summary").innerHTML = '';
-
+    localStorage.removeItem('abstract');
 }
 
 var summaryDelete = document.querySelector('.delete-summary');
@@ -147,12 +178,12 @@ function addJob() {
     var allJobList = '';
 
     for (var i = 0; i < jobList.length; i++) {
-        allJobList += '<li>Cargo: ' + jobList[i].cargo + '</li>';
-        allJobList += '<li>Empresa: ' + jobList[i].empresa + '</li>';
-        allJobList += '<li>Fecha de inicio: ' + jobList[i].mesIni + ' - ' + jobList[i].anoIni + '</li>';
-        allJobList += '<li>Fecha de fin: ';
+        allJobList += '<li>Position: ' + jobList[i].cargo + '</li>';
+        allJobList += '<li>Business: ' + jobList[i].empresa + '</li>';
+        allJobList += '<li>Start date: ' + jobList[i].mesIni + ' - ' + jobList[i].anoIni + '</li>';
+        allJobList += '<li>Ending date: ';
         if (jobList[i].actual) {
-            allJobList += 'actualmente';
+            allJobList += 'currently';
         } else {
             allJobList += jobList[i].mesFin + ' - ' + jobList[i].anoFin + '</li>';
         }

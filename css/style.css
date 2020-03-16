@@ -115,6 +115,8 @@ body {
 
 .create h1 {
     font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+    color: black;
 }
 
 .create a {
@@ -723,6 +725,9 @@ iframe {
     input.button-info {
         width: 41%;
     }
+    input.button-info:focus {
+        background-color: chocolate;
+    }
     input#actuality {
         width: 30px;
     }
@@ -760,7 +765,10 @@ iframe {
         margin-top: 100px;
     }
     .create h1 {
-        font-size: 62px;
+        background-color: rgba(51, 52, 53, 0.308);
+        font-size: 80px;
+        color: rgb(27, 27, 26);
+        font-weight: bold;
     }
     .create a {
         width: 35%;
@@ -768,11 +776,17 @@ iframe {
         background-color: #E3C18B;
         padding: 9px;
         text-align: center;
-        margin-top: 20px;
+        margin-top: 130px;
         color: #263d42;
         text-decoration: none;
         font-weight: bold;
         font-size: 23px;
+    }
+    .create a:hover {
+        background-color: rgb(199, 124, 25);
+    }
+    .section:hover {
+        background-color: rgb(115, 170, 156);
     }
     iframe {
         width: auto;
