@@ -496,6 +496,7 @@ function printCurriculum() {
     document.body.innerHTML = content;
     window.print();
     document.body.innerHTML = viewPrint;
+    location.reload();
 }
 var fileInput = document.querySelector('input[type=file]');
 var filenameContainer = document.querySelector('#filename');
