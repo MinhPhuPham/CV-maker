@@ -47,7 +47,7 @@ function fillProfile() {
 }
 var dataName3 = localStorage.getItem('name');
 var dataLastName3 = localStorage.getItem('lastname');
-document.getElementById("data-profile").innerHTML = dataName3 ? dataName3 : ' ' + dataLastName3 ? dataLastName3 : '';
+document.getElementById("data-profile").innerHTML = (dataName3 ? dataName3 : ' ') + ' ' + (dataLastName3 ? dataLastName3 : ' ');
 document.getElementById("data-profession").innerHTML = localStorage.getItem('profession');
 
 
