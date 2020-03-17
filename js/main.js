@@ -41,13 +41,13 @@ function fillProfile() {
     localStorage.setItem('profession', dataprofession);
 
     // fill to localStorage
-    document.querySelector("#data-profile").innerHTML = dataName ? dataName : '' + ' ' + dataLastName ? dataLastName : '';
+    document.querySelector("#data-profile").innerHTML = (dataName ? dataName : '') + ' ' + (dataLastName ? dataLastName : '');
     document.querySelector("#data-profession").innerHTML = dataprofession;
 
 }
 var dataName3 = localStorage.getItem('name');
 var dataLastName3 = localStorage.getItem('lastname');
-document.getElementById("data-profile").innerHTML = dataName3 ? dataName3 : '' + dataLastName3 ? dataLastName3 : '';
+document.getElementById("data-profile").innerHTML = dataName3 ? dataName3 : ' ' + dataLastName3 ? dataLastName3 : '';
 document.getElementById("data-profession").innerHTML = localStorage.getItem('profession');
 
 
